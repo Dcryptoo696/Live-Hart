@@ -6,6 +6,10 @@
   <title>Life Hacks Harian - Tips Mudah Hidup Lebih Baik | 2025</title>
   <meta name="description" content="Tips life hacks harian untuk hemat uang, produktivitas, dan kesehatan. Update terbaru 2025! Monetize dengan AdSense.">
   <meta name="keywords" content="life hacks 2025, tips hemat uang, produktivitas harian, resep sehat cepat, kesehatan sederhana">
+  <meta property="og:title" content="Life Hacks Harian - Tips 2025">
+  <meta property="og:description" content="Update mingguan: hemat, produktif, sehat!">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200">
+  <meta property="og:url" content="https://lifehacks-harian.vercel.app">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -16,29 +20,31 @@
     nav a { color: white; text-decoration: none; font-weight: 600; transition: color 0.3s; }
     nav a:hover { color: #4CAF50; }
     .container { max-width: 1200px; margin: 0 auto; padding: 2rem; display: flex; gap: 2rem; flex-wrap: wrap; }
-    .main-content { flex: 3; min-width: 300px; }
-    .sidebar { flex: 1; min-width: 300px; }
+    .main-content { flex: 1 1 300px; }
+    .sidebar { flex: 1 1 300px; }
     .hero { text-align: center; margin-bottom: 3rem; background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
     .hero h1 { font-size: 2.5rem; color: #4CAF50; margin-bottom: 1rem; }
     .articles { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
     .article { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s; cursor: pointer; }
     .article:hover { transform: translateY(-5px); }
-    .article img { width: 100%; height: 200px; object-fit: cover; }
+    .article img { width: 100%; height: 200px; object-fit: cover; loading: lazy; }
     .article-content { padding: 1.5rem; }
     .article h2 { color: #4CAF50; margin-bottom: 1rem; font-size: 1.3rem; }
     .article p { margin-bottom: 1rem; }
     .affiliate-link { color: #4CAF50; text-decoration: none; font-weight: 600; }
     .affiliate-link:hover { text-decoration: underline; }
-    .adsense-placeholder { background: #e8f5e8; text-align: center; padding: 1.5rem; margin: 1rem 0; border: 2px dashed #4CAF50; border-radius: 8px; max-height: 300px; overflow: hidden; }
-    .adsense-placeholder p { margin: 0; font-size: 0.9rem; }
+    .adsense-placeholder { background: #e8f5e8; text-align: center; padding: 1.5rem; margin: 1rem 0; border: 2px dashed #4CAF50; border-radius: 8px; }
+    .load-more { text-align: center; margin: 2rem 0; }
+    .load-more button { background: #4CAF50; color: white; padding: 1rem 2rem; border: none; border-radius: 25px; cursor: pointer; font-weight: 600; }
+    .load-more button:hover { background: #388e3c; }
     footer { background: #333; color: white; text-align: center; padding: 1.5rem; margin-top: 3rem; }
     footer a { color: #4CAF50; text-decoration: none; }
     @media (max-width: 768px) {
       .hero h1 { font-size: 2rem; }
       nav ul { flex-direction: column; gap: 1rem; }
-      .container { flex-direction: column; }
-      .sidebar { order: -1; }
+      .container { flex-direction: column-reverse; }
     }
+    .hidden { display: none; }
   </style>
 </head>
 <body>
@@ -64,15 +70,113 @@
           <p>Google AdSense Banner (Pendapatan: $0.10-0.50 per klik)</p>
         </div>
       </div>
-      <div class="articles">
-        <!-- 9 Artikel (4 lama + 5 baru) -->
-        <article id="hemat"> ... (sama seperti sebelumnya) </article>
-        <!-- ... semua artikel dari kode sebelumnya ... -->
+      <div class="articles" id="articles-container"></div>
+      <div class="load-more">
+        <button id="loadMore">Muat Lebih Banyak</button>
       </div>
     </div>
-    <div class="sidebar"> ... </div>
+    <div class="sidebar">
+      <div class="adsense-placeholder">
+        <p>AdSense Sidebar (RPM: $2-5 per 1.000 tampilan)</p>
+      </div>
+      <div class="adsense-placeholder" style="margin-top: 1rem;">
+        <p>AdSense 2 (Opsional)</p>
+      </div>
+    </div>
   </div>
-  <footer id="contact"> ... </footer>
-  <script> ... </script>
+  <footer id="contact">
+    <p>© 2025 Life Hacks Harian. Semua hak dilindungi. | <a href="#">Privacy Policy</a> | <a href="mailto:email@lifehacksharian.id">Kontak</a></p>
+    <p>Monetize: Google AdSense & Affiliate | Target: 10.000+ visitor/bulan</p>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Life Hacks Harian",
+    "url": "https://lifehacks-harian.vercel.app"
+  }
+  </script>
+
+  <script>
+    const articles = [
+      // 9 ARTIKEL LAMA (dari sebelumnya)
+      {id: "hemat", title: "5 Cara Hemat Uang Rp1 Juta/Bulan Tanpa Susah Payah", img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=200&fit=crop", desc: "Belanja pintar, cashback, timer listrik. <a href='https://shopee.co.id/affiliate' class='affiliate-link'>Shopee Affiliate</a>.", date: "11 Nov 2025", views: "5.000x"},
+      {id: "produktif", title: "Trik 10 Menit Bangun Pagi & Selesaikan 3 Tugas Utama", img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=200&fit=crop", desc: "Pomodoro + Focus Booster. <a href='https://focusbooster.app' class='affiliate-link'>Download</a>.", date: "11 Nov 2025", views: "3.200x"},
+      {id: "kesehatan", title: "Resep Smoothie Sehat 5 Menit untuk Imun Kuat 2025", img: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=200&fit=crop", desc: "Pisang + yogurt. <a href='https://amazon.com/blender' class='affiliate-link'>Beli Blender</a>.", date: "11 Nov 2025", views: "4.500x"},
+      {title: "7 Hacks Kerja Remote Tanpa Burnout di 2025", img: "https://images.unsplash.com/photo-1559757149-2f8c3a6c2e3a?w=400&h=200&fit=crop", desc: "Notion + jadwal. <a href='https://notion.so' class='affiliate-link'>Coba Notion</a>.", date: "10 Nov 2025", views: "2.800x"},
+      {title: "3 Aplikasi Gratis Ganti Photoshop di 2025", img: "https://images.unsplash.com/photo-1516321310764-0a6488d1d0a1?w=400&h=200&fit=crop", desc: "Canva, GIMP. <a href='https://canva.com/pro' class='affiliate-link'>Canva Pro</a>.", date: "11 Nov 2025", views: "1.200x"},
+      {title: "Cara Bikin Konten Viral di TikTok Tanpa Modal", img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&h=200&fit=crop", desc: "CapCut + hook. <a href='https://capcut.com' class='affiliate-link'>Download</a>.", date: "11 Nov 2025", views: "2.100x"},
+      {title: "5 Makanan Rp10.000 yang Bikin Kenyang Seharian", img: "https://images.unsplash.com/photo-1542831371-29b1c74a0c14?w=400&h=200&fit=crop", desc: "Nasi + telur. <a href='https://shopee.co.id/food' class='affiliate-link'>Belanja</a>.", date: "11 Nov 2025", views: "3.900x"},
+      {title: "Tips Tidur 6 Jam Tapi Bangun Segar", img: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=400&h=200&fit=crop", desc: "Air + kasur. <a href='https://amazon.com/mattress' class='affiliate-link'>Beli Kasur</a>.", date: "11 Nov 2025", views: "2.700x"},
+      {title: "Cara Dapat Uang dari Rumah Tanpa Keluar Kamar", img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400&h=200&fit=crop", desc: "Fiverr. <a href='https://fiverr.com' class='affiliate-link'>Daftar</a>.", date: "11 Nov 2025", views: "4.100x"},
+      // 20 ARTIKEL BARU
+      {title: "Cara Cuci Baju Tanpa Mesin (Hemat Listrik)", img: "https://images.unsplash.com/photo-1582735689396-8e5c2d61b5a8?w=400&h=200&fit=crop", desc: "Ember + sabun. Hemat 50rb/bulan!", date: "11 Nov 2025", views: "1.800x"},
+      {title: "Belajar Bahasa Inggris 15 Menit/Hari", img: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=400&h=200&fit=crop", desc: "Duolingo gratis. <a href='https://duolingo.com' class='affiliate-link'>Mulai</a>.", date: "11 Nov 2025", views: "2.300x"},
+      {title: "Olahraga di Rumah Tanpa Alat", img: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400&h=200&fit=crop", desc: "Push-up, squat. 10 menit/hari!", date: "11 Nov 2025", views: "3.100x"},
+      {title: "Bikin Website Gratis 5 Menit", img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=200&fit=crop", desc: "Vercel + HTML. <a href='https://vercel.com' class='affiliate-link'>Coba</a>.", date: "11 Nov 2025", views: "1.900x"},
+      {title: "Hemat Pulsa Internet 70%", img: "https://images.unsplash.com/photo-1517430816045-df4b7de11d41?w=400&h=200&fit=crop", desc: "Matikan data saat tidur.", date: "11 Nov 2025", views: "2.600x"},
+      {title: "Resep Nasi Goreng Rp5.000", img: "https://images.unsplash.com/photo-1604909052743-94e8382d1d1e?w=400&h=200&fit=crop", desc: "Nasi sisa + telur.", date: "11 Nov 2025", views: "4.200x"},
+      {title: "Cara Jualan Online Tanpa Modal", img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=200&fit=crop", desc: "Dropship Shopee.", date: "11 Nov 2025", views: "3.500x"},
+      {title: "Belajar Coding Gratis", img: "https://images.unsplash.com/photo-1517180109936-4f53c5a5d5e8?w=400&h=200&fit=crop", desc: "freeCodeCamp.", date: "11 Nov 2025", views: "2.800x"},
+      {title: "Bikin Konten YouTube Tanpa Wajah", img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&h=200&fit=crop", desc: "Screen record + Canva.", date: "11 Nov 2025", views: "3.300x"},
+      {title: "Cara Dapat Beasiswa S1 Gratis", img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=400&h=200&fit=crop", desc: "KIP Kuliah.", date: "11 Nov 2025", views: "2.900x"},
+      {title: "Hemat BBM Motor 30%", img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400&h=200&fit=crop", desc: "Jangan ngebut.", date: "11 Nov 2025", views: "2.200x"},
+      {title: "Cara Bikin CV Keren Gratis", img: "https://images.unsplash.com/photo-1586281380116-767d70e9a27e?w=400&h=200&fit=crop", desc: "Canva CV.", date: "11 Nov 2025", views: "1.700x"},
+      {title: "Belajar Excel 1 Jam", img: "https://images.unsplash.com/photo-1460925895917-afdab827c3de?w=400&h=200&fit=crop", desc: "VLOOKUP, Pivot.", date: "11 Nov 2025", views: "2.400x"},
+      {title: "Cara Dapat Followers IG Gratis", img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&h=200&fit=crop", desc: "Post konsisten.", date: "11 Nov 2025", views: "3.600x"},
+      {title: "Bikin Podcast Tanpa Mik", img: "https://images.unsplash.com/photo-1478737270239-2a2e6c27e9c4?w=400&h=200&fit=crop", desc: "HP + Anchor.", date: "11 Nov 2025", views: "1.900x"},
+      {title: "Cara Dapat Uang dari Google", img: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=200&fit=crop", desc: "AdSense.", date: "11 Nov 2025", views: "4.800x"},
+      {title: "Belajar Desain Grafis Otodidak", img: "https://images.unsplash.com/photo-1626785774624-6b6b6d3a3f7f?w=400&h=200&fit=crop", desc: "YouTube + Canva.", date: "11 Nov 2025", views: "2.500x"},
+      {title: "Cara Dapat Kerja Remote", img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400&h=200&fit=crop", desc: "LinkedIn + Fiverr.", date: "11 Nov 2025", views: "3.700x"},
+      {title: "Bikin Aplikasi Tanpa Coding", img: "https://images.unsplash.com/photo-1551650975-87debc7d9a8d?w=400&h=200&fit=crop", desc: "Adalo, Glide.", date: "11 Nov 2025", views: "2.100x"},
+      {title: "Hemat Tagihan Listrik Rp200rb", img: "https://images.unsplash.com/photo-1582735689396-8e5c2d61b5a8?w=400&h=200&fit=crop", desc: "Ganti lampu LED.", date: "11 Nov 2025", views: "3.000x"}
+    ];
+
+    const perPage = 10;
+    let currentPage = 1;
+
+    function renderArticles(page) {
+      const start = (page - 1) * perPage;
+      const end = start + perPage;
+      const items = articles.slice(start, end);
+      const container = document.getElementById('articles-container');
+      
+      items.forEach(item => {
+        const article = document.createElement('article');
+        if (item.id) article.id = item.id;
+        article.innerHTML = `
+          <img src="${item.img}" alt="${item.title}" loading="lazy">
+          <div class="article-content">
+            <h2>${item.title}</h2>
+            <p>${item.desc}</p>
+            <small>${item.date} | Dibaca ${item.views}</small>
+          </div>
+        `;
+        container.appendChild(article);
+      });
+
+      document.getElementById('loadMore').classList.toggle('hidden', end >= articles.length);
+    }
+
+    document.getElementById('loadMore').addEventListener('click', () => {
+      currentPage++;
+      renderArticles(currentPage);
+    });
+
+    // Init
+    renderArticles(1);
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    console.log('Life Hacks Harian v3.0 – 29 Artikel + Pagination!');
+  </script>
 </body>
 </html>
